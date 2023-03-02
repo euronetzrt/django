@@ -6,8 +6,7 @@ on:
       - master
     tags:
       - "*.*.*"
-  schedule:
-    - cron: "5 0 * * 0"
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
