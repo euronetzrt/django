@@ -24,3 +24,6 @@ RUN apk add --no-cache \
     django-tastypie \
     https://github.com/rkojedzinszky/django-tastypie-openapi/archive/master.zip && \
     rm -rf /root/.cache
+
+# Verify installation and environment settings
+RUN /usr/bin/python -c 'import django'
