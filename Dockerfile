@@ -1,4 +1,4 @@
-FROM alpine:3.19.1
+FROM alpine:3.20.0
 
 LABEL org.opencontainers.image.authors "Richard Kojedzinszky <richard@kojedz.in>"
 LABEL org.opencontainers.image.source https://github.com/euronetzrt/django
@@ -10,7 +10,7 @@ RUN apk add --no-cache tzdata py3-pip py3-virtualenv && \
 
 ENV \
     PATH=/usr/local/py3-virtualenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
-    PYTHONPATH=/usr/local/py3-virtualenv/lib/python3.11/site-packages
+    PYTHONPATH=/usr/local/py3-virtualenv/lib/python3.12/site-packages
 
 # Install frequent packages
 RUN apk add --no-cache \
