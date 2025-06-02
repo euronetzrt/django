@@ -15,7 +15,7 @@ ENV \
 # Install frequent packages
 RUN apk add --no-cache \
     py3-tz py3-asgiref py3-sqlparse py3-greenlet py3-mimeparse py3-dateutil \
-    py3-psycopg2 py3-grpcio py3-protobuf py3-paho-mqtt py3-sqlalchemy && \
+    py3-psycopg-c py3-grpcio py3-protobuf py3-paho-mqtt py3-sqlalchemy && \
     pip install --no-cache -U \
     'django<5' \
     django-atomic-migrations \
