@@ -20,7 +20,7 @@ RUN apk add --no-cache \
     'django<5' \
     django-atomic-migrations \
     django-dbconn-retry \
-    'django-db-connection-pool[postgresql] >= 1.0.7' \
+    'django-db-connection-pool >= 1.0.7' \
     django-tastypie \
     https://github.com/rkojedzinszky/django-tastypie-openapi/archive/master.zip && \
     rm -rf /root/.cache
