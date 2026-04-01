@@ -20,7 +20,7 @@ RUN apk add --no-cache \
     'django<6' \
     django-atomic-migrations \
     django-tastypie \
-    https://github.com/rkojedzinszky/django-tastypie-openapi/archive/master.zip && \
+    django-tastypie-openapi && \
     rm -rf /root/.cache
 
 # Verify installation and environment settings
