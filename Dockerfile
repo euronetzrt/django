@@ -1,10 +1,11 @@
-FROM alpine:3.23.3
+FROM alpine:3.24.3
 
 LABEL org.opencontainers.image.authors "Richard Kojedzinszky <richard@kojedz.in>"
 LABEL org.opencontainers.image.source https://github.com/euronetzrt/django
 
-# Install python3 and prepare virtualenv
-RUN apk add --no-cache tzdata py3-pip py3-virtualenv && \
+# Upgrade, install python3 and prepare virtualenv
+RUN apk --no-cache upgrade && \
+    apk add --no-cache tzdata py3-pip py3-virtualenv && \
     virtualenv --system-site-packages /usr/local/py3-virtualenv && \
     apk del --no-cache py3-virtualenv
 
@@ -15,7 +16,7 @@ ENV \
 # Install frequent packages
 RUN apk add --no-cache \
     py3-tz py3-asgiref py3-sqlparse py3-greenlet py3-mimeparse py3-dateutil \
-    py3-psycopg-c py3-psycopg-pool py3-grpcio py3-protobuf py3-paho-mqtt py3-sqlalchemy && \
+    py3-psycopg-c py3-grpcio py3-protobuf py3-paho-mqtt py3-sqlalchemy && \
     pip install --no-cache -U \
     'django<6' \
     django-atomic-migrations \
@@ -24,4 +25,4 @@ RUN apk add --no-cache \
     rm -rf /root/.cache
 
 # Verify installation and environment settings
-RUN /usr/bin/python -c 'import django'
+RUN python -c 'import django; import psycopg_pool'
