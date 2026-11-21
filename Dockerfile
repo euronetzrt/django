@@ -11,7 +11,7 @@ RUN apk --no-cache upgrade && \
 
 ENV \
     PATH=/usr/local/py3-virtualenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
-    PYTHONPATH=/usr/local/py3-virtualenv/lib/python3.12/site-packages
+    PYTHONPATH=/usr/local/py3-virtualenv/lib/python3.14/site-packages
 
 # Install frequent packages
 RUN apk add --no-cache \
@@ -25,4 +25,4 @@ RUN apk add --no-cache \
     rm -rf /root/.cache
 
 # Verify installation and environment settings
-RUN python -c 'import django; import psycopg_pool'
+RUN /usr/bin/python -c 'import django; import psycopg_pool'
